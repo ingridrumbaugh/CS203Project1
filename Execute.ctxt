@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=binary
+comment0.target=void\ determineCommand(int[])
+comment1.params=obj\ name
+comment1.target=void\ callByName(java.lang.Object,\ java.lang.String)
+numComments=2
