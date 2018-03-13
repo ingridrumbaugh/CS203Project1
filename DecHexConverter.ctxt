@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=s
+comment0.target=int\ hex2Decimal(java.lang.String)
+comment0.text=\r\n\ Given\ an\ input\ String\ (a\ hexadecimal\ value),\ return\ the\ corresponding\ int.\ \r\n
+comment1.params=d
+comment1.target=java.lang.String\ decimal2Hex(int)
+comment1.text=\r\n\ Given\ an\ input\ decimal,\ return\ the\ corresponding\ hexadecimal\ value.\ \r\n\ Precondition\:\ input\ is\ a\ nonnegative\ integer.\ \r\n
+numComments=2

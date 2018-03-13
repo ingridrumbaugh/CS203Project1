@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=b
+comment0.target=Bit(int)
+comment0.text=\r\n\ Bit\ data\ type\ constructor\ \r\n\ Creates\ a\ new\ bit\ with\ the\ assigned\ value.\r\n\ If\ the\ value\ is\ not\ 0\ or\ 1,\ an\ exception\ is\ thrown.\ \r\n\ Uses\ boolean\ 'occupied'\ to\ indicate\ that\ the\ bit\ has\ been\ assigned\ a\ value.\r\n
+comment1.params=newbit
+comment1.target=void\ assignBit(int)
+comment1.text=\r\n\ Assigns\ a\ new\ value\ to\ an\ already\ existing\ bit.\r\n\ If\ the\ value\ is\ not\ 0\ or\ 1,\ an\ exception\ is\ thrown.\ \r\n\ Uses\ boolean\ 'occupied'\ to\ indicate\ that\ the\ bit\ has\ been\ assigned\ a\ value.\r\n
+comment2.params=
+comment2.target=void\ deleteBit()
+comment2.text=\r\n\ Sets\ the\ value\ of\ the\ bit\ \=\ 0.\r\n\ Sets\ boolean\ 'occupied'\ to\ false.\ \r\n
+comment3.params=
+comment3.target=void\ reserveBit()
+comment3.text=\r\n\ Only\ sets\ boolean\ 'occupied'\ to\ true,\ but\ does\ not\ assign\ a\ value.\ \r\n
+comment4.params=
+comment4.target=int\ getbit()
+comment4.text=\r\n\ Returns\ the\ value\ of\ a\ bit.\r\n
+numComments=5

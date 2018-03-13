@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Register
+comment0.text=\r\n\ Register\ class\ used\ for\ storing\ values\ and\ helping\ manipulate\ data.\ \r\n\ Registers\:\r\n\ WZR\ -\ (4\ BYTE)\ Zero\ Register\r\n\ XZR\ -\ (8\ BYTE)\ Zero\ Register\r\n\ WSP\ -\ (4\ BYTE)\ Current\ Stack\ Pointer\ \r\n\ SP\ \ -\ (8\ BYTE)\ Current\ Stack\ Pointer\ \r\n\ PC\ \ -\ (8\ BYTE)\ Program\ Counter\r\n\ \r\n\ @author\ Ingrid\ Rumbaugh\r\n\ @version\ 10/4/17\r\n
+comment1.params=type\ bitlength
+comment1.target=Register(java.lang.String,\ int)
+comment1.text=\r\n\ Register\ Constructor\:\r\n\ Initialize\ Register\ given\ name\ (type),\ specified\ in\ class\ description.\r\n\ Also\ input\ the\ bitlength\ (Max\ of\ 4)\r\n
+comment2.params=
+comment2.target=Register()
+comment3.params=max
+comment3.target=void\ setMaxMem(int)
+comment4.params=
+comment4.target=void\ initializeRegisters()
+comment4.text=\r\n\ Creates\ the\ following\ Standard\ Registers\r\n\ WZR\ \ -\ (2\ BYTE)\ Zero\ Register\r\n\ XZR\ \ -\ (4\ BYTE)\ Zero\ Register\r\n\ WSP\ \ -\ (2\ BYTE)\ Current\ Stack\ Pointer\ \r\n\ SP\ \ \ -\ (4\ BYTE)\ Current\ Stack\ Pointer\ \r\n\ PC\ \ \ -\ (4\ BYTE)\ Program\ Counter\r\n\ SPSR\ -\ (2\ BYTE)\ Saved\ Program\ Status\ Register\ (Flags,\ NZCV)\r\n
+comment5.params=name
+comment5.target=boolean\ checkRegisterExists(java.lang.String)
+comment5.text=\r\n\ Function\ that\ checks\ if\ a\ Register\ of\ a\ certain\ name\ has\ already\ been\ created.\ \r\n\ Returns\ TRUE\ if\ it\ does\ exist,\ FALSE\ if\ it\ does\ not.\ \r\n
+comment6.params=name\ bitlength
+comment6.target=void\ createNewRegister(java.lang.String,\ int)
+comment6.text=\r\n\ Creates\ a\ new\ Register,\ Input\ name\ &\ Number\ of\ Bytes.\ \r\n\ Initializes\ the\ max\ number\ of\ bytes,\ all\ assigned\ to\ 0.\r\n
+comment7.params=bitpos\ value
+comment7.target=void\ writeReg(int,\ int)
+comment7.text=\r\n\ Writes\ values\ to\ the\ register.\ \r\n\ Given\ bit\ position,\ calculates\ which\ byte\ to\ write\ to.\ \r\n\ Writes\ 'value'\ to\ that\ bit.\ \r\n\ If\ out\ of\ range,\ return\ Arithmetic\ Exception.\ \r\n
+comment8.params=bitpos
+comment8.target=int\ getReg(int)
+comment8.text=\r\n\ Given\ a\ certain\ bit\ position,\ \r\n\ finds\ the\ correct\ byte\ and\ returns\ the\ value\ at\ the\ given\ pos.\r\n
+numComments=9

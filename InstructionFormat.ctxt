@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=
+comment0.target=InstructionFormat()
+comment0.text=\r\n\ Instruction\ Format\ Constructor\:\ \r\n\ Creates\ an\ array\ of\ type\ Byte\ for\ each\ format\ length.\r\n\ Formats\ for\ OpCodes\ are\:\ "R",\ "I",\ "D",\ and\ "IW"\ type.\ \r\n
+numComments=1

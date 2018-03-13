@@ -1,0 +1,35 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Funwithflags()
+comment0.text=\r\n\ Flag\ constructor\:\ Creates\ a\ new\ bit\ for\ each\ flag,\ setting\ them\ all\ to\ 0\ initially.\ \r\n
+comment1.params=
+comment1.target=void\ unflagall()
+comment1.text=\r\n\ Set\ all\ flags\ to\ 0\ by\ assigning\ each\ bit\ to\ 0.\ \r\n
+comment10.params=
+comment10.target=void\ vunflag()
+comment10.text=\r\n\ Un-Flag\ the\ "V"\ flag\ (Set\ the\ bit\ \=\ 0).\ \r\n
+comment2.params=s
+comment2.target=int\ getflag(java.lang.String)
+comment2.text=\r\n\ Given\ a\ string\ input\ defining\ flag\ type,\ \r\n\ return\ the\ value\ of\ the\ bit\ associated\ with\ that\ flag.\r\n
+comment3.params=
+comment3.target=void\ nflag()
+comment3.text=\r\n\ Flag\ the\ "N"\ flag\ (Set\ the\ bit\ \=\ 1).\ \r\n
+comment4.params=
+comment4.target=void\ nunflag()
+comment4.text=\r\n\ Un-Flag\ the\ "N"\ flag\ (Set\ the\ bit\ \=\ 0).\ \r\n
+comment5.params=
+comment5.target=void\ zflag()
+comment5.text=\r\n\ Flag\ the\ "Z"\ flag\ (Set\ the\ bit\ \=\ 1).\r\n
+comment6.params=
+comment6.target=void\ zunflag()
+comment6.text=\r\n\ Un-Flag\ the\ "Z"\ flag\ (Set\ the\ bit\ \=\ 0).\ \r\n
+comment7.params=
+comment7.target=void\ cflag()
+comment7.text=\r\n\ Flag\ the\ "C"\ flag\ (Set\ the\ bit\ \=\ 1).\ \r\n
+comment8.params=
+comment8.target=void\ cunflag()
+comment8.text=\r\n\ Un-Flag\ the\ "C"\ flag\ (Set\ the\ bit\ \=\ 0).\ \r\n
+comment9.params=
+comment9.target=void\ vflag()
+comment9.text=\r\n\ Flag\ the\ "V"\ flag\ (Set\ the\ bit\ \=\ 1).\ \r\n
+numComments=11

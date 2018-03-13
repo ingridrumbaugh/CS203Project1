@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=bin
+comment0.target=java.lang.String\ binaryToHex(java.lang.String)
+comment0.text=\r\n\ Input\ string\ of\ type\ binary,\ outputs\ hex\ string\ in\ "0X..."\ format.\ \r\n
+comment1.params=number
+comment1.target=java.lang.String\ convertBinaryToHexadecimal(java.lang.String)
+comment2.params=number
+comment2.target=int\ convertBinaryToDecimal(java.lang.String)
+comment3.params=number
+comment3.target=boolean\ isBinary(java.lang.String)
+comment4.params=s
+comment4.target=java.lang.String\ hexToBinTEST(java.lang.String)
+comment5.params=hex
+comment5.target=java.lang.String\ hexToBinary(java.lang.String)
+comment5.text=\r\n\ Input\ a\ string\ of\ type\ hex,\ output\ binary\ string.\ \r\n
+numComments=6

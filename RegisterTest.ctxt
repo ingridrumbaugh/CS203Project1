@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=RegisterTest
+comment0.text=\r\n\ The\ test\ class\ RegistersTest.\r\n\r\n\ @author\ \ Ingrid\ Rumbaugh\ \r\n\ @version\ 10/10/17\r\n
+comment1.params=
+comment1.target=void\ testRegConstructor()
+numComments=2

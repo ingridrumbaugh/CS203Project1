@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Assembler
+comment0.text=\r\n\ Contains\ the\ Main\ method\ to\ run\ the\ program.\ \r\n\ Creates\ an\ instance\ of\ the\ ReadFiles\ class.\r\n\ Calls\ the\ function\ readAsFile\ to\ implement\ the\ program.\ \r\n\ \r\n\ @author\ Ingrid\ Rumbaugh\r\n\ @version\ 10/4/17\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Main\ method\ of\ the\ program\ that\ creates\ an\ instance\ of\ the\ ReadFiles\ class.\ \r\n
+numComments=2

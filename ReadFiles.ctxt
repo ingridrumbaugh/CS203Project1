@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=ReadFiles
+comment0.text=\r\n\ Accepts\ an\ input\ file\ of\ type\ "*.as"\ and\ parses\ the\ arguments.\ \r\n\ (Assuming\ that\ the\ input\ file\ is\ the\ correct\ format,\ see\ Documentation.)\r\n\ \r\n\ \r\n\ @author\ Ingrid\ Rumbaugh\ \r\n\ @version\ 10/20/17\r\n
+comment1.params=dataFile
+comment1.target=void\ readAsFile(java.lang.String)
+comment1.text=\r\n\ Reads\ the\ file,\ given\ a\ string\ of\ the\ file\ name.\ \r\n\ Outputs\ the\ parsing\ process\ to\ show\ how\ each\ command\ was\ broken\ down.\ \r\n
+comment2.params=hex
+comment2.target=void\ saveFinalHex(java.util.List)
+comment2.text=\r\n\ Saves\ the\ final\ Hex\ output\ and\ sends\ it\ to\ the\ writeOutputFile\ class\r\n
+comment3.params=
+comment3.target=void\ parseEndDirectives()
+comment4.params=
+comment4.target=void\ parseDirectives()
+comment5.params=
+comment5.target=void\ saveArgs()
+comment6.params=
+comment6.target=java.util.List\ getArgs()
+comment7.params=command
+comment7.target=void\ saveCommandString(java.lang.String[])
+comment7.text=\r\n\ Given\ an\ array\ of\ type\ String,\ (this\ is\ the\ command)\r\n\ Save\ the\ string\ to\ be\ used\ /\ returned\ later.\ \r\n
+comment8.params=
+comment8.target=java.lang.String[]\ getCommandString()
+comment8.text=\r\n\ Returns\ the\ saved\ command\ string\ as\ an\ array.\r\n
+comment9.params=obj\ name
+comment9.target=void\ callByName(java.lang.Object,\ java.lang.String)
+comment9.text=\r\n\ This\ method\ allows\ the\ parsed\ command\ to\ call\ a\ function\ with\ the\ same\ name\r\n\ in\ the\ AssemblerFunctions\ class.\ \r\n
+numComments=10

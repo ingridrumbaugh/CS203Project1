@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=maxmem
+comment0.target=Memory(int)
+comment0.text=\r\n\ Memory\ constructor,\ given\ max\ memory\ location.\ \r\n\ This\ class\ creates\ addresses\ for\ each\ data\ type\ added.\ \r\n\ The\ correct\ amount\ of\ bytes\ are\ reserved\ for\ each\ data\ type\ as\ well.\ \r\n
+comment1.params=max
+comment1.target=void\ setMaxMemory(int)
+comment2.params=
+comment2.target=Memory()
+comment3.params=
+comment3.target=int\ getMemLocation()
+comment3.text=\r\n\ Returns\ the\ memory\ location\ of\ an\ object\ (type\ int\ address).\ \r\n
+comment4.params=n
+comment4.target=void\ writeStack(int)
+comment4.text=\r\n\ Max\:\ Writing\ a\ 2\ Byte\ Integer\ to\ the\ stack.\ \r\n
+comment5.params=b
+comment5.target=void\ writeMemory(Byte)
+comment5.text=\r\n\ Blank\ Method\ -\ Intended\ to\ write\ a\ Byte\ to\ the\ memory.\r\n\ This\ byte\ would\ be\ given\ an\ address\ in\ memory\ and\ saved.\r\n
+comment6.params=b
+comment6.target=void\ writeMemory(Byte[])
+comment6.text=\r\n\ Blank\ Method\ -\ Intended\ to\ write\ an\ array\ of\ bytes\ to\ memory.\r\n\ These\ bytes\ are\ given\ an\ address\ range\ and\ saved\ into\ the\ memory\ stack.\ \r\n
+comment7.params=type\ contents
+comment7.target=void\ writeMem(java.lang.String,\ java.lang.String)
+comment7.text=\r\n\ Blank\ Method\ -\ Intended\ to\ write\ to\ a\ specific\ address.\r\n\ Given\ the\ type\ (String),\ and\ the\ contents\ (String),\ the\ correct\ amount\ of\ memory\ will\ be\ allocated\r\n\ and\ stored\ as\ well.\ \r\n
+numComments=8
