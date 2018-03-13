@@ -112,6 +112,15 @@ public class Memory {
         address = startaddress; 
     }
 
+    public void writeMemory(Byte b, int memaddress) {
+        int startaddress = memaddress;
+        while (memory[startaddress] != null) {
+            startaddress++;
+        }
+        memory[startaddress] = b; 
+        // don't update address!  this is for writing a specific, already reserved byte in mem
+    }
+    
     /**
      * Blank Method - Intended to write an array of bytes to memory.
      * These bytes are given an address range and saved into the memory stack. 

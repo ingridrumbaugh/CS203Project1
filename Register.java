@@ -23,6 +23,7 @@ public class Register {
     List<String> registermemlocations = new ArrayList<String>(); 
     int maxmem;
     int tempaddress; 
+    int address; 
     
     /**
      * Register Constructor:
@@ -46,8 +47,10 @@ public class Register {
             bytelist = new Byte[2]; 
             bytelist[0] = b1;
             bytelist[1] = b2;
-            //registermemlocations.add(type+"1"+Integer.toString(tempadd1));
-            //registermemlocations.add(type+"
+            int tempadd1 = m.getMemLocation(); 
+            int tempadd2 = tempadd1+1; 
+            registermemlocations.add(type+"1"+Integer.toString(tempadd1));
+            registermemlocations.add(type+"2"+Integer.toString(tempadd2)); 
             m.writeMemory(bytelist); 
         }
         else if (bytelength == 3) {
@@ -58,6 +61,12 @@ public class Register {
             bytelist[0] = b1;
             bytelist[1] = b2;
             bytelist[2] = b3; 
+            int tempadd1 = m.getMemLocation();
+            int tempadd2 = tempadd1+1;
+            int tempadd3 = tempadd2+1; 
+            registermemlocations.add(type+"1"+Integer.toString(tempadd1)); 
+            registermemlocations.add(type+"2"+Integer.toString(tempadd2)); 
+            registermemlocations.add(type+"3"+Integer.toString(tempadd3)); 
             m.writeMemory(bytelist); 
         }
         // Ensures that max byte length is 4 
@@ -71,6 +80,14 @@ public class Register {
             bytelist[1] = b2;
             bytelist[2] = b3;
             bytelist[3] = b4; 
+            int tempadd1 = m.getMemLocation();
+            int tempadd2 = tempadd1+1;
+            int tempadd3 = tempadd2+1; 
+            int tempadd4 = tempadd3+1; 
+            registermemlocations.add(type+"1"+Integer.toString(tempadd1)); 
+            registermemlocations.add(type+"2"+Integer.toString(tempadd2)); 
+            registermemlocations.add(type+"3"+Integer.toString(tempadd3)); 
+            registermemlocations.add(type+"4"+Integer.toString(tempadd4)); 
             m.writeMemory(bytelist); 
         }
         
@@ -125,6 +142,9 @@ public class Register {
         
         if(bytelength == 1) { 
             b1 = new Byte(0,0,0,0,0,0,0,0);
+            int tempadd1 = m.getMemLocation();
+            registermemlocations.add(name+"1");
+            registermemlocations.add(Integer.toString(tempadd1)); 
             m.writeMemory(b1);
         }
         else if(bytelength == 2) {
@@ -133,6 +153,13 @@ public class Register {
             bytelist = new Byte[2]; 
             bytelist[0] = b1;
             bytelist[1] = b2;
+            int tempadd1 = m.getMemLocation();
+            int tempadd2 = tempadd1+1;
+            registermemlocations.add(name+"1");
+            registermemlocations.add(Integer.toString(tempadd1)); 
+            registermemlocations.add(name+"2");
+            registermemlocations.add(Integer.toString(tempadd2)); 
+
             m.writeMemory(bytelist); 
         }
         else if (bytelength == 3) {
@@ -143,6 +170,15 @@ public class Register {
             bytelist[0] = b1;
             bytelist[1] = b2;
             bytelist[2] = b3; 
+            int tempadd1 = m.getMemLocation();
+            int tempadd2 = tempadd1+1;
+            int tempadd3 = tempadd2+1; 
+            registermemlocations.add(name+"1");
+            registermemlocations.add(Integer.toString(tempadd1)); 
+            registermemlocations.add(name+"2");
+            registermemlocations.add(Integer.toString(tempadd2)); 
+            registermemlocations.add(name+"3");
+            registermemlocations.add(Integer.toString(tempadd3)); 
             m.writeMemory(bytelist); 
         }
         // Ensures that max byte length is 4 
@@ -156,6 +192,18 @@ public class Register {
             bytelist[1] = b2;
             bytelist[2] = b3;
             bytelist[3] = b4; 
+            int tempadd1 = m.getMemLocation();
+            int tempadd2 = tempadd1+1;
+            int tempadd3 = tempadd2+1; 
+            int tempadd4 = tempadd3+1; 
+            registermemlocations.add(name+"1");
+            registermemlocations.add(Integer.toString(tempadd1)); 
+            registermemlocations.add(name+"2");
+            registermemlocations.add(Integer.toString(tempadd2)); 
+            registermemlocations.add(name+"3");
+            registermemlocations.add(Integer.toString(tempadd3)); 
+            registermemlocations.add(name+"4");
+            registermemlocations.add(Integer.toString(tempadd4)); 
             m.writeMemory(bytelist); 
         }
         
@@ -167,16 +215,23 @@ public class Register {
      * Writes 'value' to that bit. 
      * If out of range, return Arithmetic Exception. 
      */
-    public void writeReg(int bitpos, int value) {
+    public void writeReg(String name, int bitpos, int value) {
         if(bitpos >= 0 || bitpos <= 7) {
             b1.assignBit(bitpos, value); 
-            
+            address = registermemlocations.indexOf(name+"1") + 1; 
+            m.writeMemory(b1, address); 
         } else if (bitpos >= 8 || bitpos <= 15) {
             b2.assignBit(bitpos, value);
+            address = registermemlocations.indexOf(name+"2") + 1; 
+            m.writeMemory(b2, address); 
         } else if (bitpos >= 16 || bitpos <= 23) {
             b3.assignBit(bitpos, value);
+            address = registermemlocations.indexOf(name+"3") + 1; 
+            m.writeMemory(b3, address); 
         } else if (bitpos >= 24 || bitpos <= 31) {
             b4.assignBit(bitpos, value); 
+            address = registermemlocations.indexOf(name+"4") + 1; 
+            m.writeMemory(b4, address); 
         } else {
             throw new ArithmeticException("Invalid Bit Position");   
         } 
@@ -200,8 +255,5 @@ public class Register {
         } 
     }
 
-    //     public String getReg(String name) {
-    //         
-    //     }
 }
 
