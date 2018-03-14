@@ -137,6 +137,21 @@ public class Memory {
         address = startaddress; 
     }
 
+    public List<String> memToHex() {
+        List<String> hexmem = new ArrayList<String>(); 
+        String[] temparray = new String[4];
+        String temphex = new String(); 
+        
+        for (int i = 0; i < maxmemory; i ++) {
+            for (int j = 0; j < maxmemory; j = j*4) {
+                temparray[j] = Integer.toString(memory[i+j].getintbit(j));
+            }
+            temphex = temparray.toString();
+            hexmem.add(temphex); 
+        }
+        return hexmem;
+    }
+    
     /**
      * Blank Method - Intended to write to a specific address.
      * Given the type (String), and the contents (String), the correct amount of memory will be allocated
