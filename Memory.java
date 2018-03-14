@@ -77,6 +77,14 @@ public class Memory {
         return address;
     }
 
+    public void writeStack(Byte b) {
+        memstack.push(b); 
+    }
+    
+    public void changeStack(Byte b, int index) {
+        memstack.set(index, b); 
+    }
+    
     /**
      * Max: Writing a 2 Byte Integer to the stack. 
      */

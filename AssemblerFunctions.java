@@ -405,7 +405,7 @@ public class AssemblerFunctions {
                 tohex += otherstring;
             }
             if (hbc.convertBinaryToHexadecimal(tohex) == "") {
-                finalHex.add("0");
+                finalHex.add("0");  
             }
             else {
                 finalHex.add(hbc.convertBinaryToHexadecimal(tohex));
@@ -413,6 +413,7 @@ public class AssemblerFunctions {
             tohex = "";
         }
         System.out.println("Final Hex Command: "); 
+        // ADD THIS SHIT TO MEMORY! 
         for (int k = 0; k < finalHex.size(); k ++) {
             System.out.print(finalHex.get(k)); 
         }

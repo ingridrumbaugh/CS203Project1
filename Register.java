@@ -17,10 +17,13 @@ public class Register {
     String regtype;
     int length; 
     int bytelength; 
+    int finalindex; // for the hashmap (keeping track of stack)
+    String finalvarname; 
     Byte b1, b2, b3, b4; // MAX_LENGTH = 4 BYTES 
     Byte[] bytelist; 
     Memory m = new Memory(); 
     List<String> registermemlocations = new ArrayList<String>(); 
+    HashMap<Integer, String> stackvals = new HashMap<Integer, String>(); 
     int maxmem;
     int tempaddress; 
     int address; 
@@ -34,63 +37,8 @@ public class Register {
         regtype = type; 
         length = bitlength;
         bytelength = bitlength/8; 
-        // if bytelength = 4,3,2,1...
-        if(bytelength == 1) { 
-            b1 = new Byte(0,0,0,0,0,0,0,0);
-            tempaddress = m.getMemLocation(); 
-            m.writeMemory(b1);
-            registermemlocations.add(type+Integer.toString(tempaddress)); 
-        }
-        else if(bytelength == 2) {
-            b1 = new Byte(0,0,0,0,0,0,0,0);
-            b2 = new Byte(0,0,0,0,0,0,0,0);
-            bytelist = new Byte[2]; 
-            bytelist[0] = b1;
-            bytelist[1] = b2;
-            int tempadd1 = m.getMemLocation(); 
-            int tempadd2 = tempadd1+1; 
-            registermemlocations.add(type+"1"+Integer.toString(tempadd1));
-            registermemlocations.add(type+"2"+Integer.toString(tempadd2)); 
-            m.writeMemory(bytelist); 
-        }
-        else if (bytelength == 3) {
-            b1 = new Byte(0,0,0,0,0,0,0,0);
-            b2 = new Byte(0,0,0,0,0,0,0,0);
-            b3 = new Byte(0,0,0,0,0,0,0,0);
-            bytelist = new Byte[3]; 
-            bytelist[0] = b1;
-            bytelist[1] = b2;
-            bytelist[2] = b3; 
-            int tempadd1 = m.getMemLocation();
-            int tempadd2 = tempadd1+1;
-            int tempadd3 = tempadd2+1; 
-            registermemlocations.add(type+"1"+Integer.toString(tempadd1)); 
-            registermemlocations.add(type+"2"+Integer.toString(tempadd2)); 
-            registermemlocations.add(type+"3"+Integer.toString(tempadd3)); 
-            m.writeMemory(bytelist); 
-        }
-        // Ensures that max byte length is 4 
-        else {
-            b1 = new Byte(0,0,0,0,0,0,0,0);
-            b2 = new Byte(0,0,0,0,0,0,0,0);
-            b3 = new Byte(0,0,0,0,0,0,0,0);
-            b4 = new Byte(0,0,0,0,0,0,0,0); 
-            bytelist = new Byte[4];
-            bytelist[0] = b1; 
-            bytelist[1] = b2;
-            bytelist[2] = b3;
-            bytelist[3] = b4; 
-            int tempadd1 = m.getMemLocation();
-            int tempadd2 = tempadd1+1;
-            int tempadd3 = tempadd2+1; 
-            int tempadd4 = tempadd3+1; 
-            registermemlocations.add(type+"1"+Integer.toString(tempadd1)); 
-            registermemlocations.add(type+"2"+Integer.toString(tempadd2)); 
-            registermemlocations.add(type+"3"+Integer.toString(tempadd3)); 
-            registermemlocations.add(type+"4"+Integer.toString(tempadd4)); 
-            m.writeMemory(bytelist); 
-        }
-        
+        // put new registers (not the standard ones) on the stack 
+        createNewRegisterStack(type, bitlength); 
         initializeRegisters(); 
     }
 
@@ -131,6 +79,104 @@ public class Register {
         else return false;
     }
 
+    public void pushBack() {
+        Set set      = stackvals.entrySet(); 
+        Iterator itr = set.iterator(); 
+        
+        while (itr.hasNext()) {
+            Map.Entry mapentry = (Map.Entry)itr.next(); 
+            Object  varname    = mapentry.getKey(); 
+            Object  index      = mapentry.getValue(); 
+            
+            finalvarname = varname.toString(); 
+            finalindex   = Integer.valueOf((String) index);
+            int newindex = finalindex + 1; 
+            // push everything back one index to keep it on track w the stack 
+            stackvals.put(newindex, finalvarname); 
+        }
+    }
+    
+    public String getVarName(int index) {
+        String var = new String(); 
+        var = stackvals.get(index); 
+        return var; 
+    }
+    
+    public int getIndex(String varname) {
+        String tofind = varname; 
+        int found = -5; 
+        Set set = stackvals.entrySet(); 
+        Iterator itr = set.iterator(); 
+        
+        while (itr.hasNext()) {
+            Map.Entry mapentry = (Map.Entry)itr.next(); 
+            Object stringname  = mapentry.getKey(); 
+            Object index       = mapentry.getValue();
+            
+            String finalstringname = stringname.toString(); 
+            int finalindex = Integer.valueOf((String) index); 
+            if (finalstringname == tofind) {
+                found = finalindex; 
+                // find first occurrence of varname 
+                break;
+            }
+        }
+        
+        return found;
+    }
+    
+    public void createNewRegisterStack(String name, int bitlength) {
+        regtype = name;
+        length = bitlength;
+        bytelength = bitlength/8; 
+        
+        if(bytelength == 1) { 
+            b1 = new Byte(0,0,0,0,0,0,0,0);
+            m.writeStack(b1);
+            pushBack(); 
+            stackvals.put(0, name); 
+        }
+        else if(bytelength == 2) {
+            b1 = new Byte(0,0,0,0,0,0,0,0);
+            b2 = new Byte(0,0,0,0,0,0,0,0);
+            m.writeStack(b2); 
+            m.writeStack(b1); 
+            pushBack(); 
+            stackvals.put(0, name); 
+            pushBack(); 
+            stackvals.put(0, name); 
+        }
+        else if (bytelength == 3) {
+            b1 = new Byte(0,0,0,0,0,0,0,0);
+            b2 = new Byte(0,0,0,0,0,0,0,0);
+            b3 = new Byte(0,0,0,0,0,0,0,0);
+            m.writeStack(b3);
+            m.writeStack(b2);
+            m.writeStack(b1); 
+            pushBack(); 
+            for (int i = 0; i < 3; i ++) {
+                stackvals.put(0, name); 
+                pushBack(); 
+            }
+        }
+        // Ensures that max byte length is 4 
+        else {
+            b1 = new Byte(0,0,0,0,0,0,0,0);
+            b2 = new Byte(0,0,0,0,0,0,0,0);
+            b3 = new Byte(0,0,0,0,0,0,0,0);
+            b4 = new Byte(0,0,0,0,0,0,0,0); 
+            m.writeStack(b4); 
+            m.writeStack(b3);
+            m.writeStack(b2);
+            m.writeStack(b1); 
+            pushBack(); 
+            for (int i = 0; i < 4; i ++) {
+                stackvals.put(0, name); 
+                pushBack(); 
+            }
+        }
+    }
+    
     /**
      * Creates a new Register, Input name & Number of Bytes. 
      * Initializes the max number of bytes, all assigned to 0.
@@ -218,20 +264,20 @@ public class Register {
     public void writeReg(String name, int bitpos, int value) {
         if(bitpos >= 0 || bitpos <= 7) {
             b1.assignBit(bitpos, value); 
-            address = registermemlocations.indexOf(name+"1") + 1; 
-            m.writeMemory(b1, address); 
+            address = getIndex(name); 
+            m.changeStack(b1, address); 
         } else if (bitpos >= 8 || bitpos <= 15) {
             b2.assignBit(bitpos, value);
-            address = registermemlocations.indexOf(name+"2") + 1; 
-            m.writeMemory(b2, address); 
+            address = getIndex(name); 
+            m.changeStack(b2, address+1); 
         } else if (bitpos >= 16 || bitpos <= 23) {
             b3.assignBit(bitpos, value);
-            address = registermemlocations.indexOf(name+"3") + 1; 
-            m.writeMemory(b3, address); 
+            address = getIndex(name);
+            m.changeStack(b3, address+2); 
         } else if (bitpos >= 24 || bitpos <= 31) {
             b4.assignBit(bitpos, value); 
-            address = registermemlocations.indexOf(name+"4") + 1; 
-            m.writeMemory(b4, address); 
+            address = getIndex(name); 
+            m.changeStack(b4, address+3); 
         } else {
             throw new ArithmeticException("Invalid Bit Position");   
         } 
@@ -254,6 +300,5 @@ public class Register {
             throw new ArithmeticException("Invalid Bit Position");   
         } 
     }
-
 }
 
