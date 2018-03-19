@@ -413,7 +413,7 @@ public class AssemblerFunctions {
             tohex = "";
         }
         System.out.println("Final Hex Command: "); 
-        // ADD THIS SHIT TO MEMORY! 
+
         for (int k = 0; k < finalHex.size(); k ++) {
             System.out.print(finalHex.get(k)); 
         }

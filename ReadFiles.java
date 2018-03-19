@@ -58,7 +58,7 @@ public class ReadFiles {
             sc = new Scanner(new FileReader(dataFile)); 
 
             parseDirectives();
-
+            
             // WHILE LINE DOESN'T CONTAIN HALT 
             // if 1st command == ADDI go to addi method etc 
             while (sc.hasNext("HALT") == false) {

@@ -56,7 +56,8 @@ public class Memory {
     public void setMaxMemory(int max) {
         maxmemory = max/8; 
         memory = new Byte[maxmemory]; 
-        address = java.util.Arrays.asList(memory).indexOf(0); 
+        //address = java.util.Arrays.asList(memory).indexOf(0); 
+        address = 0; 
         //memory[maxmemory/4] = memstack.peek();
         // 1/64 of space at end of memory is reserved for the stack 
         for (int i = (63*maxmemory)/64; i < maxmemory-1; i ++) {

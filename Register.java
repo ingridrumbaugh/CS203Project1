@@ -37,19 +37,22 @@ public class Register {
         regtype = type; 
         length = bitlength;
         bytelength = bitlength/8; 
-        // put new registers (not the standard ones) on the stack 
-        createNewRegisterStack(type, bitlength); 
+        // put new registers (not the standard ones) on the stack
+        if (maxmem > 0) {
+            createNewRegisterStack(type, bitlength); 
+        }
         initializeRegisters(); 
     }
 
     public Register() {
         // don't do anything yet 
-        initializeRegisters(); 
+        //initializeRegisters(); 
     }
 
     public void setMaxMem(int max) {
         maxmem = max; 
         m.setMaxMemory(maxmem); 
+        //initializeRegisters(); 
     }
 
     /**
@@ -125,10 +128,9 @@ public class Register {
         return found;
     }
     
-    public void createNewRegisterStack(String name, int bitlength) {
+    public void createNewRegisterStack(String name, int blength) {
         regtype = name;
-        length = bitlength;
-        bytelength = bitlength/8; 
+        length = blength;
         
         if(bytelength == 1) { 
             b1 = new Byte(0,0,0,0,0,0,0,0);
@@ -181,11 +183,10 @@ public class Register {
      * Creates a new Register, Input name & Number of Bytes. 
      * Initializes the max number of bytes, all assigned to 0.
      */
-    public void createNewRegister(String name, int bitlength) {
+    public void createNewRegister(String name, int blength) {
         regtype = name;
-        length = bitlength;
-        bytelength = bitlength/8; 
-        
+        length = blength;
+
         if(bytelength == 1) { 
             b1 = new Byte(0,0,0,0,0,0,0,0);
             int tempadd1 = m.getMemLocation();
